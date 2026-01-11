@@ -1,0 +1,19 @@
+# virtual environments
+myenv/
+myenv2/
+
+# secrets
+.env
+keyss
+keyss.pub
+
+# vector DB runtime data
+qdrant_storage/
+
+# python junk
+__pycache__/
+*.pyc
+
+# OS / editor
+.vscode/
+.DS_Store
