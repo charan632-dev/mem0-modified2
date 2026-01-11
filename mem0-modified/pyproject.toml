@@ -27,5 +27,6 @@ dependencies = [
     "fastembed"
 ]
 
-[tool.setuptools]
-packages = ["mem0"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mem0", "mem0.*"]
