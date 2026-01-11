@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mem0ai"
+version = "0.1.0"
+description = "Modified mem0 package for healthcare AI agents"
+requires-python = ">=3.8"
+dependencies = [
+    "anthropic",
+    "cohere", 
+    "google-generativeai",
+    "groq",
+    "litellm",
+    "mistralai",
+    "ollama",
+    "openai",
+    "together",
+    "boto3",
+    "chromadb",
+    "qdrant-client",
+    "pymilvus",
+    "psycopg2-binary",
+    "azure-ai-inference",
+    "fastembed",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["llms*", "proxy*", "client*", "graphs*", "memory*", "configs*", "embeddings*", "vector_stores*"]
