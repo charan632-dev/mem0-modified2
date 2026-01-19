@@ -363,6 +363,7 @@ class MemoryGraph:
         )
 
         entities = []
+        print(f"Extrcated Entities are:{extracted_entities}")
         if extracted_entities.get("tool_calls"):
             entities = (
                 extracted_entities["tool_calls"][0]
