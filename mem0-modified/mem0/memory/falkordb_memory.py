@@ -380,6 +380,7 @@ class MemoryGraph:
         else:
             # Plain text response = no entities
             entities = []
+            print("LLM does not generated any entities in content and data in tools , so no data is added in memory graph for this text ")
         ###############
         entities = self._remove_spaces_from_entities(entities)
         logger.debug("Extracted entities: %s", entities)
