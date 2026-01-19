@@ -363,7 +363,7 @@ class MemoryGraph:
         )
 
         entities = []
-        print(f"Extrcated Entities are:{extracted_entities}")
+        
         if extracted_entities.get("tool_calls"):
             entities = (
                 extracted_entities["tool_calls"][0]
@@ -371,9 +371,15 @@ class MemoryGraph:
                 .get("entities", [])
             )
         ######### changes made by us
-        elif extracted_entities['content']:
-            entities_json = json.loads(extracted_entities['content'])
-            entities = entities_json.get('entities',[])
+        elif extracted_entities.get('content', '').strip().startswith('{'):
+            try:
+                entities_json = json.loads(extracted_entities['content'])
+                entities = entities_json.get('entities', [])
+            except json.JSONDecodeError:
+                entities = []
+        else:
+            # Plain text response = no entities
+            entities = []
         ###############
         entities = self._remove_spaces_from_entities(entities)
         logger.debug("Extracted entities: %s", entities)
